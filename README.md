@@ -11,17 +11,70 @@ compose UI is called Declarative UI that use states, it is a new way of thinking
 
 # Compose : how it works ?
 
-*  Composable function run sequentially.
-*  For every composable you can add modifiers.
-*  Composable function is a regular function annotated by @Composable , this enable other composable within it .
-*  with composable , an Activity remains the entry point to an android app.
-*  With composable , you use setContent() to define your layout but instead of using XML ,you use a composable functions within it.
+* Composable function run sequentially.
+* For every composable you can add modifiers.
+* Composable function is a regular function annotated by @Composable , this enable other composable
+  within it .
+* with composable , an Activity remains the entry point to an android app.
+* With composable , you use setContent() to define your layout but instead of using XML ,you use a
+  composable functions within it.
 
+# Recomposition:
 
-## Note : 
- ### When importing classes related to Jetpack Compose in this project, use those from:
- * androidx.compose.* for compiler and runtime classes.
- * androidx.compose.ui.* for UI toolkit and libraries.
+Compose apps transform data into UI by calling composable functions , if your data changes, compose
+re-execute these function with the new data, creating an updated UI.
+
+State and MutableState are interfaces that hold some value and trigger UI updates (recompositions)
+whenever that value changes.
+
+# State Hoisting :
+
+In Composable functions , state that is read and modified by multiple function should be live in a
+common ancestor - this process is called state hoisting . to hoist means to elevate or raise.
+
+making state hoistable avoid duplicate duplicate state and introducing bugs ,helps reuse composable ,making composable easier to test
+
+## Note :
+
+### When importing classes related to Jetpack Compose in this project, use those from:
+
+* androidx.compose.* for compiler and runtime classes.
+* androidx.compose.ui.* for UI toolkit and libraries.
+
+## Important elements in Compose :
+
+### modifier parameter :
+
+Modifiers tell a UI element how to lay out, display, or behave within its parent layout.
+there is a list of compose
+modifier . [List of Compose modifiers](https://developer.android.com/jetpack/compose/modifiers-list).
+
+### Multiple Modifiers :
+
+to add multiple modifiers to an element , you simply chain them .
+
+```kotlin
+    modifier = Modifier.fillMaxWidth().padding(4.dp)
+```
+
+### Weight Modifier:
+
+the weight modifier makes the element fill the available space.making it flexible, effectively
+pushing away all other elements that doesn't have weight.which are called inflexible.
+
+```kotlin
+Row(modifier = Modifier.padding(24.dp)) {
+    Column(
+        modifier = Modifier.weight(1f)
+    ) {
+        Text(text = "Hello")
+        Text(text = "$name!")
+    }
+    ElevatedButton(onClick = { /*TODO*/ }) {
+        Text(text = "Show more")
+    }
+}
+```
 
 # Basic compose designs:
 
@@ -138,9 +191,15 @@ Row(
 LazyColumn(Modifier.fillMaxSize()) {
     items(count = 10)
     { i ->
-        Icon(imageVector = Icons.Default.Add,
+        Icon(
+            imageVector = Icons.Default.Add,
             contentDescription = null,
-            modifier = Modifier.size(100.dp))
+            modifier = Modifier.size(100.dp)
+        )
     }
 }
  ```
+
+## Resources :
+
+[Jetpack Compose basics](https://developer.android.com/codelabs/jetpack-compose-basics#0).
