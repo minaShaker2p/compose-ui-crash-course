@@ -11,8 +11,17 @@ compose UI is called Declarative UI that use states, it is a new way of thinking
 
 # Compose : how it works ?
 
-1-composable function run sequentially.
-2- for every composable you can add modifiers.
+*  Composable function run sequentially.
+*  For every composable you can add modifiers.
+*  Composable function is a regular function annotated by @Composable , this enable other composable within it .
+*  with composable , an Activity remains the entry point to an android app.
+*  With composable , you use setContent() to define your layout but instead of using XML ,you use a composable functions within it.
+
+
+## Note : 
+ ### When importing classes related to Jetpack Compose in this project, use those from:
+ * androidx.compose.* for compiler and runtime classes.
+ * androidx.compose.ui.* for UI toolkit and libraries.
 
 # Basic compose designs:
 
