@@ -18,6 +18,8 @@ compose UI is called Declarative UI that use states, it is a new way of thinking
 * with composable , an Activity remains the entry point to an android app.
 * With composable , you use setContent() to define your layout but instead of using XML ,you use a
   composable functions within it.
+* In compose you don't hide UI element, simply you don't add in composition. so they are not added
+  to the UI tree that compose generate.
 
 # Recomposition:
 
@@ -32,7 +34,8 @@ whenever that value changes.
 In Composable functions , state that is read and modified by multiple function should be live in a
 common ancestor - this process is called state hoisting . to hoist means to elevate or raise.
 
-making state hoistable avoid duplicate duplicate state and introducing bugs ,helps reuse composable ,making composable easier to test
+making state hoistable avoid duplicate duplicate state and introducing bugs ,helps reuse composable
+,making composable easier to test
 
 ## Note :
 
