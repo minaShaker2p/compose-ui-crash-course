@@ -226,3 +226,9 @@ LazyColumn(Modifier.fillMaxSize()) {
 ## Resources :
 
 [Jetpack Compose basics](https://developer.android.com/codelabs/jetpack-compose-basics#0).
+
+[The Jetpack Compose Beginner Crash Course ](https://www.youtube.com/watch?v=6_wK_Ud8--0).
+
+
+## Next steps : 
+[Jetpack Compose for Android Developers](https://developer.android.com/courses/jetpack-compose/course)

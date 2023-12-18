@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ComposeCrashCourse</string>
     <string name="title_activity_list">ListActivity</string>
+
+    <string name="show_less">Show less</string>
+    <string name="show_more">Show more</string>
 </resources>
