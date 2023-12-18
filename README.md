@@ -35,14 +35,34 @@ In Composable functions , state that is read and modified by multiple function s
 common ancestor - this process is called state hoisting . to hoist means to elevate or raise.
 
 making state hoistable avoid duplicate duplicate state and introducing bugs ,helps reuse composable
-,making composable easier to test
+,making composable easier to test.
 
-## Note :
+# Persisting State:
+
+Imagine the case when you run the app and click buttons then you rotate ,then you will lose all
+states . the `remember` function works ** only as long as the composable is kept in the
+Composition ** . so when you rotate , the whole activity is restarted so all state is lost.
+
+### Solution :
+
+instead of using `remember` you can use `rememberSaveable` , this will save each state surviving
+Configurations changes (like rotation) and process kill.
+
+```kotlin
+   var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
+```
+
+## Notes :
 
 ### When importing classes related to Jetpack Compose in this project, use those from:
 
 * androidx.compose.* for compiler and runtime classes.
 * androidx.compose.ui.* for UI toolkit and libraries.
+
+### LazyColumn and LazyRow are equivalent to RecyclerView in Android Views.
+
+* the LazyColumn API provides an items element within its scope, where individual item rendering
+  logic is written.
 
 ## Important elements in Compose :
 
