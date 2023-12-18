@@ -19,6 +19,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -43,65 +45,70 @@ class ListActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeCrashCourseTheme {
-                MyApp(
-                    modifier = Modifier
-                        .fillMaxSize()
-                )
+                MyApp(modifier = Modifier.fillMaxSize())
             }
         }
     }
 }
 
 @Composable
-fun Greeting(modifier: Modifier = Modifier, name: String) {
+private fun Greeting(name: String) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        CardContent(name = name)
+    }
+}
+
+
+@Composable
+fun CardContent(modifier: Modifier = Modifier, name: String) {
     var expanded by rememberSaveable { mutableStateOf(false) }
 
-    Surface(
-        color = MaterialTheme.colorScheme.background,
-        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    Row(
+        modifier = Modifier
+            .padding(12.dp)
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
+            ),
     ) {
-        Row(
+        Column(
             modifier = Modifier
-                .padding(12.dp)
-                .animateContentSize(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
-                        stiffness = Spring.StiffnessLow
-                    )
-                ),
+                .weight(1f)
+
         ) {
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-
-            ) {
-                Text(text = "Hello,")
+            Text(text = "Hello,")
+            Text(
+                text = name, style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = FontWeight.ExtraBold
+                )
+            )
+            if (expanded) {
                 Text(
-                    text = name, style = MaterialTheme.typography.headlineMedium.copy(
-                        fontWeight = FontWeight.ExtraBold
-                    )
+                    text = ("Composem ipsum color sit lazy, " +
+                            "padding theme elit, sed do bouncy. ").repeat(4),
                 )
-                if (expanded) {
-                    Text(
-                        text = ("Composem ipsum color sit lazy, " +
-                                "padding theme elit, sed do bouncy. ").repeat(4),
-                    )
-                }
-            }
-            IconButton(onClick = { expanded = !expanded }) {
-
-                Icon(
-                    imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                    contentDescription = if (expanded) stringResource(R.string.show_more) else stringResource(
-                        R.string.show_less
-                    )
-                )
-
-
             }
         }
+        IconButton(onClick = { expanded = !expanded }) {
 
+            Icon(
+                imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                contentDescription = if (expanded) stringResource(R.string.show_more) else stringResource(
+                    R.string.show_less
+                )
+            )
+
+
+        }
     }
+
 }
 
 
@@ -128,10 +135,10 @@ private fun Greetings(
     names: List<String> = List(1000) { "$it" },
 
     ) {
-    LazyColumn(modifier = modifier) {
+    LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
         items(names)
         { name ->
-            Greeting(name = name, modifier = modifier)
+            Greeting(name = name)
         }
     }
 }

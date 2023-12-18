@@ -232,3 +232,5 @@ LazyColumn(Modifier.fillMaxSize()) {
 
 ## Next steps : 
 [Jetpack Compose for Android Developers](https://developer.android.com/courses/jetpack-compose/course)
+
+[Thinking in Compose](https://developer.android.com/jetpack/compose/mental-model)
