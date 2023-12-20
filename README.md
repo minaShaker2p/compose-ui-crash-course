@@ -5,7 +5,7 @@ views.
 
 ##  compose ui screenshots: 
  ### Calculator App compose UI : 
- you can find code here . [CalculatorActivity](src/main/java/com.example.composecrashcourse.calculator/CalculatorActivity) .
+ you can find code here . [CalculatorActivity](app/src/main/java/com/example/composecrashcourse/calculator/CalculatorActivity.kt) .
 
 ![Calculator screenshot](screenshot.png)
 
