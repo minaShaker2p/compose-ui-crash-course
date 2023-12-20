@@ -3,6 +3,12 @@
 This project is a crash course of compose UI , how to build views using compose ui instead of xml
 views.
 
+##  compose ui screenshots: 
+ ### Calculator App compose UI : 
+ you can find code here . [CalculatorActivity](src/main/java/com.example.composecrashcourse.calculator.CalculatorActivity) .
+
+![Calculator screenshot](screenshot1.png)
+
 # Compose UI
 
 Jetpack Compose UI it is a new way of building ui views in android development.in compose ui we use
