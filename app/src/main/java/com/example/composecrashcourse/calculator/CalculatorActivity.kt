@@ -1,4 +1,4 @@
-package com.example.composecrashcourse
+package com.example.composecrashcourse.calculator
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,30 +17,8 @@ class CalculatorActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeCrashCourseTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting2("Android")
-                }
+
             }
         }
-    }
-}
-
-@Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview2() {
-    ComposeCrashCourseTheme {
-        Greeting2("Android")
     }
 }
