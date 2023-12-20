@@ -3,6 +3,6 @@ package com.example.composecrashcourse.calculator
 sealed class CalculatorOperation(val symbol: String) {
     object Add : CalculatorOperation("+")
     object Subtract : CalculatorOperation("-")
-    object Multiply : CalculatorOperation("*")
+    object Multiply : CalculatorOperation("x")
     object Divide : CalculatorOperation("/")
 }
