@@ -229,6 +229,8 @@ LazyColumn(Modifier.fillMaxSize()) {
 
 [The Jetpack Compose Beginner Crash Course ](https://www.youtube.com/watch?v=6_wK_Ud8--0).
 
+[How to Build a Calculator with Jetpack Compose](https://youtube.com/watch?v=-aTcFJWxEQA)
+
 
 ## Next steps : 
 [Jetpack Compose for Android Developers](https://developer.android.com/courses/jetpack-compose/course)
