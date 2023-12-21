@@ -229,6 +229,33 @@ LazyColumn(Modifier.fillMaxSize()) {
 }
  ```
 
+### How to setup Jetpack Navigation for list and details screen in compose :
+it is really easy and convenient to setup list and details screens in compose UI .
+
+```kotlin
+val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = "pokemon_list_screen"
+                ) {
+                    composable("list_screen")
+                    {
+                        ListScreen(navController = navController)
+                    }
+                    composable(
+                        "details_screen/{dominantColor}/{name}",
+                        arguments = listOf(navArgument("dominantColor") {
+                            type = NavType.IntType
+                        }, navArgument("name") {
+                            type = NavType.StringType
+                        })
+                    )
+                    {
+                      DetailsScreen(navController = navController)
+
+                    }
+                    }
+ ```
 ## Resources :
 
 [Jetpack Compose basics](https://developer.android.com/codelabs/jetpack-compose-basics#0).
