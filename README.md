@@ -264,6 +264,8 @@ val navController = rememberNavController()
 
 [How to Build a Calculator with Jetpack Compose](https://youtube.com/watch?v=-aTcFJWxEQA)
 
+[How to Implement Swipe to Delete with Material3](https://www.youtube.com/watch?v=IlI6GgC_j78).
+
 
 ## Next steps : 
 [Jetpack Compose for Android Developers](https://developer.android.com/courses/jetpack-compose/course)
