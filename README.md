@@ -266,6 +266,8 @@ val navController = rememberNavController()
 
 [How to Implement Swipe to Delete with Material3](https://www.youtube.com/watch?v=IlI6GgC_j78).
 
+[How to Build a Multiline Text Field With Hint](https://www.youtube.com/watch?v=pGeaLBGFoec)
+
 
 ## Next steps : 
 [Jetpack Compose for Android Developers](https://developer.android.com/courses/jetpack-compose/course)
