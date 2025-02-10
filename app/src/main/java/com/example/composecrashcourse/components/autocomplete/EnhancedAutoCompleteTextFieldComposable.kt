@@ -115,12 +115,8 @@ fun EnhancedAutoCompleteTextField() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.Start
                 ) {
-                    items(
-                        items = filteredSuggestions,
-                        key = { suggestion -> suggestion } // Using the suggestion string as the key
-                    ) { suggestion ->
-                        Box(
-                            modifier = Modifier
+                    items(filteredSuggestions) { suggestion ->
+                        Box(modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
                                     // Update text with selected suggestion and move cursor to the end

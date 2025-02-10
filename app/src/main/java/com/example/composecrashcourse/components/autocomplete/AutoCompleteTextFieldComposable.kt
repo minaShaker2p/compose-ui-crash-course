@@ -40,8 +40,16 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun AutoCompleteTextFieldComposable() {
     var textFieldValue by remember { mutableStateOf(TextFieldValue("")) }
-    val suggestions =
-        listOf("Apple", "Banana", "Date", "Cherry", "Grape", "Apple1", "Apple2", "Apple3","Apple4")
+    val suggestions = listOf(
+        "Apple", "Banana", "Cherry", "Date", "Grape", "Pineapple",
+        "Orange", "Blueberry", "Strawberry", "Mango", "Kiwi", "Peach",
+        "Plum", "Raspberry", "Watermelon", "Cantaloupe", "Papaya", "Lemon",
+        "Lime", "Apricot", "Blackberry", "Cranberry", "Grapefruit", "Guava",
+        "Lychee", "Nectarine", "Pomegranate", "Tangerine", "Coconut",
+        "Dragonfruit", "Passionfruit", "Mulberry", "Jackfruit", "Durian", "Persimmon",
+        "Fig", "Soursop", "Quince", "Starfruit", "Avocado", "Melon",
+        "Cucumber", "Clementine", "Honeydew", "Jujube", "Kumquat"
+    )
     var filteredSuggestions by remember { mutableStateOf(suggestions) }
     var showSuggestions by remember { mutableStateOf(false) }
     // FocusRequester to control focus programmatically
@@ -55,30 +63,28 @@ fun AutoCompleteTextFieldComposable() {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .shadow(8.dp, RoundedCornerShape(8.dp))
-                .background(Color.White, shape = RoundedCornerShape(8.dp))
-                .animateContentSize() // lazy animation
-            , elevation = CardDefaults.cardElevation(8.dp)
+                .shadow(8.dp, RoundedCornerShape(8.dp)),
+            shape = RoundedCornerShape(8.dp),
+            elevation = CardDefaults.cardElevation(8.dp)
         ) {
             BasicTextField(
-                value = textFieldValue, onValueChange = { newValue: TextFieldValue ->
-                    if (newValue.text != textFieldValue.text)
+                value = textFieldValue,
+                onValueChange = { newValue ->
+                    if (newValue.text != textFieldValue.text) {
                         textFieldValue = newValue
+                        // Show suggestions only when input is not empty
+                        showSuggestions = newValue.text.isNotEmpty()
 
-                    // Show suggestions only when input is not empty
-                    showSuggestions = newValue.text.isNotEmpty()
-
-                    // Filter the suggestions based on the current input
-                    filteredSuggestions = if (newValue.text.isEmpty()) {
-                        suggestions
-                    } else {
-                        suggestions.filter {
-                            it.contains(newValue.text, ignoreCase = true)
+                        // Filter the suggestions based on the current input
+                        filteredSuggestions = if (newValue.text.isEmpty()) {
+                            suggestions
+                        } else {
+                            suggestions.filter { it.contains(newValue.text, ignoreCase = true) }
                         }
                     }
                 },
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .background(Color.White)
                     .padding(16.dp)
                     .focusRequester(focusRequester),
@@ -144,10 +150,6 @@ fun AutoCompleteTextFieldComposable() {
                     modifier = Modifier.padding(8.dp)
                 )
             }
-
         }
-
     }
-
-
 }
